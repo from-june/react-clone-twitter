@@ -1,0 +1,149 @@
+.Tweet {
+  position: relative;
+  width: 22rem;
+}
+
+.user-tweet {
+  width: 22rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tweet-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.Tweet-userImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fedd47;
+  margin-right: 5px;
+}
+
+.Tweet-userName {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.tweet-date {
+  color: #999;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.tweet-text {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.selected-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.selected-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.btn-box {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: -5px;
+}
+
+.btn-edit,
+.btn-delete {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-icon {
+  color: #d5d5d5;
+}
+
+.btn-icon:hover {
+  color: #1da1f2;
+}
+
+.visually-hidden {
+  opacity: 0;
+  display: absoulte;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.edit-form {
+  position: relative;
+}
+
+.edit-textarea {
+  width: 17.5rem;
+  height: 4rem;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+  caret-color: #1da1f2;
+  outline: none;
+  border: 1px dashed #e5e5e5;
+  background-color: #fff;
+  border-radius: 3px;
+  resize: none;
+}
+
+.edit-textarea::placeholder {
+  color: #d2d2d2;
+  font-size: 1rem;
+}
+
+.edit-textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.edit-textarea::-webkit-scrollbar-thumb {
+  background-color: #fedd47;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+.edit-textarea::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.btn-edit-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.btn-control.btn-okay {
+  padding: 0.7rem 1.2rem;
+  background-color: #d5d5d5;
+}
+
+.btn-control.btn-okay:hover {
+  background-color: #1da1f2;
+}

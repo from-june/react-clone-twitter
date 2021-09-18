@@ -1,0 +1,125 @@
+.tweet-form {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.tweet-area {
+  margin: 5px;
+  width: 24rem;
+  height: 4rem;
+  outline: none;
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  caret-color: #1da1f2;
+  overflow: scroll;
+  resize: none;
+}
+
+.tweet-area::placeholder {
+  color: #d2d2d2;
+  font-size: 1rem;
+}
+
+.tweet-area::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tweet-area::-webkit-scrollbar-thumb {
+  background-color: #fedd47;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+.tweet-area::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.tweet-file {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#tweet-img {
+  display: none;
+}
+
+.input-img-label {
+  margin-right: 4rem;
+}
+
+.input-img {
+  color: #d5d5d5;
+  cursor: pointer;
+}
+
+.input-img:hover {
+  color: #1da1f2;
+}
+
+.btn-send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 35px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.submit {
+  color: #1da1f2;
+}
+
+.attachment-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 24rem;
+  height: 7rem;
+  padding: 0.5rem;
+  border: 1px dashed #e5e5e5;
+  border-radius: 3px;
+}
+
+.attachment-img {
+  width: 9rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-right: 1rem;
+}
+
+.btn-control {
+  font-size: 0.8rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #1da1f2;
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #d5d5d5;
+}
+
+.btn-cancel:hover {
+  background-color: #1da1f2;
+}
+
+.visually-hidden {
+  opacity: 0;
+  display: absoulte;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

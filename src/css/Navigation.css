@@ -1,0 +1,35 @@
+.Navigation-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  transform: translate(90px, 5px);
+}
+.Navigation-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  font-weight: 400;
+  height: 3.5rem;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  margin-left: 3px;
+}
+
+.link-item {
+  color: #999;
+}
+
+.Navigation-link:hover .link-item {
+  color: #1da1f2;
+}
+
+.Navigation-link:focus-within .link-item {
+  color: #1da1f2;
+}
+
+.Navigation-link:active .link-item {
+  color: #1da1f2;
+}

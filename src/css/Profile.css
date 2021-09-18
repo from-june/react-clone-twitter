@@ -1,0 +1,51 @@
+.Profile {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.Profile-userContent {
+  width: 24rem;
+  height: 23%;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0.5rem;
+}
+
+.Profile-userImg {
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid #fedd47;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.Profile-userText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Profile-userName {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.Profile-userBio {
+  font-size: 0.9rem;
+}
+.btn-signOut {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: #1da1f2;
+  background-color: transparent;
+  border: 1px solid #1da1f2;
+  border-radius: 20px;
+}
+
+.label {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,88 @@
+.Auth {
+  width: 25rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.Clone-Twitter {
+  font-family: 'Fugaz One', cursive;
+  font-size: 2.5rem;
+  color: #1da1f2;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #1da1f2;
+}
+
+.account-input {
+  padding: 0.6rem 1rem;
+  width: 20rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  caret-color: #1da1f2;
+}
+
+::placeholder {
+  color: #d2d2d2;
+  font-size: 0.9rem;
+}
+
+.btn {
+  margin: 0 auto;
+  color: #fff;
+  background-color: #1da1f2;
+  padding: 0.7rem 1.4rem;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.btn-account {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.error {
+  font-size: 1rem;
+  color: red;
+  padding: 0.2rem 0.5rem;
+}
+
+.account {
+  color: #1da1f2;
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
