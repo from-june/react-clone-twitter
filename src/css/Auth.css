@@ -10,17 +10,17 @@
   margin-bottom: 1rem;
 }
 
-.logo {
+.Auth-logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .Clone-Twitter {
   font-family: 'Fugaz One', cursive;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #1da1f2;
 }
 
@@ -85,4 +85,15 @@
   text-decoration: underline;
   cursor: pointer;
   margin-bottom: 1rem;
+  text-align: center;
+  width: 80%;
+}
+
+.account::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
+  transform: translateY(7px);
 }

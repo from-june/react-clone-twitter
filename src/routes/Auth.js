@@ -39,8 +39,8 @@ const Auth = () => {
 
   return (
     <div className="Auth">
-      <div className="logo">
-        <img src={mainLogo} alt="Clone Twitter" width="120px" height="120px" />
+      <div className="Auth-logo ">
+        <img src={mainLogo} alt="Clone Twitter" width="100px" height="100px" />
         <h1 className="Clone-Twitter">Clone Twitter</h1>
       </div>
 
@@ -81,7 +81,7 @@ const Auth = () => {
       <p className="account" onClick={toggleAccount}>
         {newAccount ? '로그인' : '회원가입'}
       </p>
-
+      <p className="label socail-login">다른 서비스로 로그인</p>
       <AuthFromSocial />
     </div>
   );
