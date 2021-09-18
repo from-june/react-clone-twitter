@@ -54,7 +54,7 @@ const Auth = () => {
             id="email"
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="email@example.com"
             value={email}
             onChange={onInputChange}
           />
@@ -68,7 +68,7 @@ const Auth = () => {
             id="password"
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="******"
             value={password}
             onChange={onInputChange}
           />

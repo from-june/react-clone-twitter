@@ -111,6 +111,7 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
                   id="Profile-userName"
                   type="text"
                   name="name"
+                  placeholder="옐"
                   required
                   maxLength={8}
                   value={newDisplayName}
@@ -122,6 +123,7 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
                   자기소개
                 </label>
                 <input
+                  placeholder="노마드코더 클론트위터 챌린지"
                   id="Profile-userBio"
                   type="text"
                   name="bio"
