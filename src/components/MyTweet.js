@@ -34,7 +34,7 @@ const MyTweet = ({ signedInUser }) => {
   return (
     <div className="MyTweet">
       {myTweets.map(tweet => (
-        <div className="tweet-mine">
+        <div className="tweet-mine" key={tweet.id}>
           <p className="tweet-mine-text" key={tweet.id}>
             {tweet.text}
           </p>

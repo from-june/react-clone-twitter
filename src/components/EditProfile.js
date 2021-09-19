@@ -46,6 +46,7 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
         photoURL: attachmentUrl
       });
       refreshUser();
+      setIsEditing(false);
     }
 
     if (signedInUser.displayName !== newDisplayName) {
@@ -92,7 +93,11 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
               htmlFor="Profile-userImg"
               aria-label="사용자 이미지 업로드"
             >
-              <FontAwesomeIcon icon={faImage} size="3x" className="input-img" />
+              <FontAwesomeIcon
+                icon={faImage}
+                size="3x"
+                className="input-img edit-userImg-icon"
+              />
             </label>
             <input
               id="Profile-userImg"

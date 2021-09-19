@@ -45,7 +45,6 @@ const Home = ({ signedInUser }) => {
             key={tweet.id}
             tweetObj={tweet}
             isOwner={tweet.creatorId === signedInUser.uid}
-            signedInUser={signedInUser}
           />
         ))}
       </div>

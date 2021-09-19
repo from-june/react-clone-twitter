@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 
-const Tweet = ({ tweetObj, isOwner, signedInUser }) => {
+const Tweet = ({ tweetObj, isOwner }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTweet, setNewTweet] = useState(tweetObj.text);
 
@@ -66,10 +66,10 @@ const Tweet = ({ tweetObj, isOwner, signedInUser }) => {
           <div className="tweet-content">
             <img
               className="Tweet-userImg"
-              src={signedInUser.photoURL}
+              src={tweetObj.creatorImg}
               alt="User"
             />
-            <p className="Tweet-userName">{signedInUser.displayName}</p>
+            <p className="Tweet-userName">{tweetObj.creatorName}</p>
             <span className="tweet-date">{getTweetDate()}</span>
           </div>
           <h4 className="tweet-text">{tweetObj.text}</h4>

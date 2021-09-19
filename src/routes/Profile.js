@@ -7,7 +7,6 @@ import { doc, onSnapshot } from '@firebase/firestore';
 import EditProfile from 'components/EditProfile';
 import MyTweet from 'components/MyTweet';
 
-import mainLogo from 'images/twitter.png';
 import 'css/Profile.css';
 
 const Profile = ({ signedInUser, refreshUser }) => {
@@ -35,7 +34,7 @@ const Profile = ({ signedInUser, refreshUser }) => {
       <div className="Profile-userContent">
         <img
           className="Profile-userImg"
-          src={signedInUser.photoURL ? signedInUser.photoURL : mainLogo}
+          src={signedInUser.photoURL}
           alt={signedInUser.displayName}
         />
         <div className="Profile-userText">

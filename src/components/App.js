@@ -16,11 +16,9 @@ const App = () => {
       if (user) {
         setIsSignedIn(true);
         setSignedInUser({
-          displayName: authService.currentUser.displayName
-            ? authService.currentUser.displayName
-            : 'Anonymous',
-          uid: authService.currentUser.uid,
-          photoURL: authService.currentUser.photoURL
+          displayName: user.displayName ? user.displayName : 'Anonymous',
+          uid: user.uid,
+          photoURL: user.photoURL ? user.photoURL : mainLogo
         });
       } else {
         setIsSignedIn(false);
@@ -31,10 +29,12 @@ const App = () => {
   }, []);
 
   const refreshUser = () => {
+    const user = authService.currentUser;
+
     setSignedInUser({
-      displayName: authService.currentUser.displayName,
-      uid: authService.currentUser.uid,
-      photoURL: authService.currentUser.photoURL
+      displayName: user.displayName,
+      uid: user.uid,
+      photoURL: user.photoURL
     });
   };
 

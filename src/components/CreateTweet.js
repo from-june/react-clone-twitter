@@ -38,8 +38,9 @@ const CreateTweet = ({ signedInUser }) => {
       text: tweet,
       createdAt: Date.now(),
       creatorId: signedInUser.uid,
-      attachmentUrl,
-      likes: 0
+      creatorImg: signedInUser.photoURL,
+      creatorName: signedInUser.displayName,
+      attachmentUrl
     });
 
     setTweet('');
