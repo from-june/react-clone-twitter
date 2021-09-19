@@ -1,3 +1,21 @@
+:root {
+  --primary-color: #1da1f2;
+  --point-color: #fedd47;
+  --text-color: #333;
+  --border-color: #e5e5e5;
+  --white-color: #ffffff;
+  --unseleted-color: #999;
+  --placeholder-color: #d2d2d2;
+
+  --main-font: 'Source Sans Pro', sans-serif;
+
+  --base-width: 24rem;
+  --base-height: 35rem;
+
+  --margin-bottom-md: 1rem;
+  --margin-bottom-sm: 0.5rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,8 +23,8 @@
 
 body {
   font-size: 62.5%;
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: #fedd47;
+  font-family: var(--main-font);
+  background-color: var(--point-color);
 }
 
 a {
@@ -17,8 +35,12 @@ a {
 button,
 input,
 textarea {
-  font-family: 'Source Sans Pro', sans-serif;
+  outline: none;
+  box-shadow: none;
+  font-family: var(--main-font);
   font-size: 16px;
+  caret-color: var(--primary-color);
+  resize: none;
 }
 
 button:focus,
@@ -29,6 +51,12 @@ textarea:focus,
 textarea:active {
   outline: none;
   box-shadow: none;
+  caret-color: var(--primary-color);
+  resize: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 ul,
@@ -55,7 +83,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: var(--white-color);
   border-radius: 10px;
   margin-bottom: 0.5rem;
 }
@@ -63,7 +91,7 @@ li {
 .init-text {
   font-size: 1rem;
   padding: 0.2rem 0.5rem;
-  color: #1da1f2;
+  color: var(--primary-color);
 }
 
 .footer {
@@ -72,9 +100,9 @@ li {
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  color: #1da1f2;
+  color: var(--primary-color);
 }
 
 a {
-  color: #fff;
+  color: var(--white-color);
 }

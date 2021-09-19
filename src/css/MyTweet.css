@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px dashed #e5e5e5;
+  border-bottom: 1px dashed var(--border-color);
 }
 
 .tweet-mine-text {
@@ -20,7 +20,7 @@
 }
 
 .MyTweet::-webkit-scrollbar-thumb {
-  background-color: #fedd47;
+  background-color: var(--point-color);
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;

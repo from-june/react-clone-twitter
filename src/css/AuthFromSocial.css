@@ -8,7 +8,7 @@
 .social {
   border: none;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--white-color);
   cursor: pointer;
-  margin: 1rem;
+  margin: var(--margin-bottom-md);
 }

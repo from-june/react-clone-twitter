@@ -6,7 +6,7 @@
 .user-tweet {
   width: 22rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tweet-content {
@@ -21,7 +21,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #fedd47;
+  border: 2px solid var(--point-color);
   margin-right: 5px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .tweet-date {
-  color: #999;
+  color: var(--unseleted-color);
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: -0.05em;
@@ -42,7 +42,7 @@
   font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: -0.01em;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
@@ -80,11 +80,11 @@
 }
 
 .btn-icon {
-  color: #d5d5d5;
+  color: var(--placeholder-color);
 }
 
 .btn-icon:hover {
-  color: #1da1f2;
+  color: var(--primary-color);
 }
 
 .visually-hidden {
@@ -103,9 +103,9 @@
   width: 17.5rem;
   height: 4rem;
   padding: 1.5rem 0.5rem 0.5rem 0.5rem;
-  caret-color: #1da1f2;
+  caret-color: var(--primary-color);
   outline: none;
-  border: 1px dashed #e5e5e5;
+  border: 1px dashed var(--border-color);
   background-color: #fff;
   border-radius: 3px;
   resize: none;
@@ -121,7 +121,7 @@
 }
 
 .edit-textarea::-webkit-scrollbar-thumb {
-  background-color: #fedd47;
+  background-color: var(--point-color);
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
@@ -141,9 +141,9 @@
 
 .btn-control.btn-okay {
   padding: 0.7rem 1.2rem;
-  background-color: #d5d5d5;
+  background-color: var(--placeholder-color);
 }
 
 .btn-control.btn-okay:hover {
-  background-color: #1da1f2;
+  background-color: var(--primary-color);
 }

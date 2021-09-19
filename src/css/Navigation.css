@@ -13,13 +13,13 @@
   font-weight: 400;
   height: 3.5rem;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--border-color);
   border-radius: 3px;
   margin-left: 3px;
 }
 
 .link-item {
-  color: #999;
+  color: var(--unseleted-color);
 }
 
 .Navigation-link:hover .link-item {

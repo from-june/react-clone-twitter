@@ -30,7 +30,7 @@
 }
 
 .TweetList::-webkit-scrollbar-thumb {
-  background-color: #fedd47;
+  background-color: var(--point-color);
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
