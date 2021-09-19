@@ -22,14 +22,18 @@
   color: var(--unseleted-color);
 }
 
+#home-item {
+  color: var(--primary-color);
+}
+
 .Navigation-link:hover .link-item {
-  color: #1da1f2;
+  color: var(--primary-color);
 }
 
 .Navigation-link:focus-within .link-item {
-  color: #1da1f2;
+  color: var(--primary-color);
 }
 
 .Navigation-link:active .link-item {
-  color: #1da1f2;
+  color: var(--primary-color);
 }
