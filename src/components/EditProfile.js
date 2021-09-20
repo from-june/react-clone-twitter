@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { authService, dbService, storageService } from 'myFirebase';
 import { updateProfile } from '@firebase/auth';
-import { doc, setDoc } from '@firebase/firestore';
+import { doc, updateDoc } from '@firebase/firestore';
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 
 import 'css/EditProfile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
 
-const EditProfile = ({ signedInUser, refreshUser }) => {
+const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newPhotoURL, setNewPhotoURL] = useState('');
   const [newDisplayName, setNewDisplayName] = useState(
     signedInUser.displayName
   );
-  const [userBio, setUserBio] = useState('');
+  const [userBio, setUserBio] = useState(bioText);
 
   const onImgChange = event => {
     const selectedImg = event.target.files[0];
@@ -58,7 +58,7 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
     }
 
     if (isEditing) {
-      await setDoc(doc(dbService, 'bio', signedInUser.uid), {
+      await updateDoc(doc(dbService, 'bio', signedInUser.uid), {
         text: userBio,
         creatorId: signedInUser.uid
       });
@@ -75,7 +75,10 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
     <>
       {isEditing && (
         <div className="EditProfile">
-          <form className="edit-form" onSubmit={onFormSubmit}>
+          <form
+            className="edit-form edit-form__profile"
+            onSubmit={onFormSubmit}
+          >
             {newPhotoURL && (
               <div className="preview-box">
                 <img
@@ -138,18 +141,23 @@ const EditProfile = ({ signedInUser, refreshUser }) => {
                 />
               </div>
             </div>
-            <button className="btn-control btn-save" type="submit">
-              저장
-            </button>
+            <div className="profile-btn-box">
+              <button className="btn-control btn-okay btn-save" type="submit">
+                저장
+              </button>
+              <button className="btn-control btn-cancel">취소</button>
+            </div>
           </form>
         </div>
       )}
-      <button
-        className="btn-control btn-edit-profile"
-        onClick={onToggleEditClick}
-      >
-        {isEditing ? '취소' : '프로필 수정'}
-      </button>
+      {!isEditing && (
+        <button
+          className="btn-control btn-edit-profile"
+          onClick={onToggleEditClick}
+        >
+          프로필수정
+        </button>
+      )}
     </>
   );
 };

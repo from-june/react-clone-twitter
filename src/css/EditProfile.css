@@ -15,6 +15,10 @@
   display: flex;
 }
 
+.edit-form__profile {
+  height: 10rem;
+}
+
 #Profile-userImg {
   display: none;
 }
@@ -62,10 +66,14 @@
   font-size: 0.8rem;
 }
 
-.btn-save {
+.profile-btn-box {
   position: absolute;
-  top: 130px;
+  top: 127px;
   right: 0;
+}
+
+.btn-save {
+  margin-right: 5px;
 }
 
 .btn-edit-profile {
