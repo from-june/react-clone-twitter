@@ -29,36 +29,42 @@ const Navigation = ({ signedInUser }) => {
   };
 
   return (
-    <ul className="Navigation-box">
-      <li className="Navigation-link" id="link-home" onClick={onTargetClick}>
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={faHome}
-            size="2x"
-            className="link-item"
-            id="home-item"
-          />{' '}
-          <span className="link-item" id="home-item">
-            홈
-          </span>
-        </Link>
-      </li>
-      <li className="Navigation-link" id="link-profile" onClick={onTargetClick}>
-        {signedInUser && (
-          <Link to="/profile">
+    <div className="Navigation">
+      <ul className="Navigation-box">
+        <li className="Navigation-link" id="link-home" onClick={onTargetClick}>
+          <Link to="/">
             <FontAwesomeIcon
-              icon={faUser}
+              icon={faHome}
               size="2x"
               className="link-item"
-              id="profile-item"
+              id="home-item"
             />{' '}
-            <span className="link-item" id="profile-item">
-              프로필
+            <span className="link-item" id="home-item">
+              홈
             </span>
           </Link>
-        )}
-      </li>
-    </ul>
+        </li>
+        <li
+          className="Navigation-link"
+          id="link-profile"
+          onClick={onTargetClick}
+        >
+          {signedInUser && (
+            <Link to="/profile">
+              <FontAwesomeIcon
+                icon={faUser}
+                size="2x"
+                className="link-item"
+                id="profile-item"
+              />{' '}
+              <span className="link-item" id="profile-item">
+                프로필
+              </span>
+            </Link>
+          )}
+        </li>
+      </ul>
+    </div>
   );
 };
 

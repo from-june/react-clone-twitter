@@ -1,10 +1,12 @@
 .Navigation-box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   font-size: 1rem;
-  transform: translate(90px, 5px);
+  transform: translate(-10px, 5px);
+  z-index: -2;
 }
+
 .Navigation-link {
   display: flex;
   justify-content: center;

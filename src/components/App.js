@@ -41,18 +41,19 @@ const App = () => {
   return (
     <div className="App">
       {init ? (
-        <Router
-          isSignedIn={isSignedIn}
-          signedInUser={signedInUser}
-          refreshUser={refreshUser}
-        />
+        <div className="Home">
+          <Router
+            isSignedIn={isSignedIn}
+            signedInUser={signedInUser}
+            refreshUser={refreshUser}
+          />
+        </div>
       ) : (
         <div className="init">
           <img src={mainLogo} alt="logo" width="50px" height="50px" />
           <p className="init-text">Initailizing...</p>
         </div>
       )}
-
       <footer className="footer">
         <p>&copy; 2021 CloneTwitter</p>
         <div>
