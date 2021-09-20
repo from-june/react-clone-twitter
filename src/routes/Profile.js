@@ -17,8 +17,8 @@ import 'css/Home.css';
 import 'css/Profile.css';
 
 const Profile = ({ signedInUser, refreshUser }) => {
-  const [bioText, setBioText] = useState('');
   const [myTweets, setMyTweets] = useState([]);
+  const [bioText, setBioText] = useState('');
 
   const history = useHistory();
   const onLogoutClick = () => {
@@ -44,17 +44,20 @@ const Profile = ({ signedInUser, refreshUser }) => {
     return () => unsubscribe();
   }, [signedInUser.uid]);
 
-  const getMyBio = useCallback(() => {
-    const userBio = onSnapshot(doc(dbService, 'bio', signedInUser.uid), doc => {
-      if (!doc.data()) return;
-      setBioText(doc.data().text);
-    });
-    return () => userBio();
+  const getMyBio = useCallback(async () => {
+    const unsubscribe = onSnapshot(
+      doc(dbService, 'bio', signedInUser.uid),
+      doc => {
+        if (!doc.data()) return;
+        setBioText(doc.data().text);
+      }
+    );
+    return () => unsubscribe();
   }, [signedInUser.uid]);
 
   useEffect(() => {
-    getMyBio();
     getMyTweets();
+    getMyBio();
   }, [getMyTweets, getMyBio]);
 
   return (
