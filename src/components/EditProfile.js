@@ -145,7 +145,12 @@ const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
               <button className="btn-control btn-okay btn-save" type="submit">
                 저장
               </button>
-              <button className="btn-control btn-cancel">취소</button>
+              <button
+                className="btn-control btn-cancel"
+                onClick={onToggleEditClick}
+              >
+                취소
+              </button>
             </div>
           </form>
         </div>
