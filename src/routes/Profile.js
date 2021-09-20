@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router';
-
 import { authService, dbService } from 'myFirebase';
 import { signOut } from '@firebase/auth';
-import { doc, onSnapshot } from '@firebase/firestore';
+import {
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  where
+} from '@firebase/firestore';
 import EditProfile from 'components/EditProfile';
-import MyTweet from 'components/MyTweet';
+import Tweet from 'components/Tweet';
 
+import 'css/Home.css';
 import 'css/Profile.css';
 
 const Profile = ({ signedInUser, refreshUser }) => {
   const [bioText, setBioText] = useState('');
+  const [myTweets, setMyTweets] = useState([]);
 
   const history = useHistory();
   const onLogoutClick = () => {
@@ -18,16 +26,36 @@ const Profile = ({ signedInUser, refreshUser }) => {
     history.push('/');
   };
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(
-      doc(dbService, 'bio', signedInUser.uid),
-      doc => {
-        if (!doc.data()) return;
-        setBioText(doc.data().text);
-      }
+  const getMyTweets = useCallback(async () => {
+    const tweets = query(
+      collection(dbService, 'tweets'),
+      where('creatorId', '==', signedInUser.uid),
+      orderBy('createdAt', 'desc')
     );
+
+    const unsubscribe = onSnapshot(tweets, snapshot => {
+      const myTweetArr = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setMyTweets(myTweetArr);
+    });
+
     return () => unsubscribe();
   }, [signedInUser.uid]);
+
+  const getMyBio = useCallback(() => {
+    const userBio = onSnapshot(doc(dbService, 'bio', signedInUser.uid), doc => {
+      if (!doc.data()) return;
+      setBioText(doc.data().text);
+    });
+    return () => userBio();
+  }, [signedInUser.uid]);
+
+  useEffect(() => {
+    getMyBio();
+    getMyTweets();
+  }, [getMyTweets, getMyBio]);
 
   return (
     <div className="Profile Clone-container">
@@ -42,8 +70,22 @@ const Profile = ({ signedInUser, refreshUser }) => {
           <p className="Profile-userBio">{bioText}</p>
         </div>
       </div>
-      <EditProfile signedInUser={signedInUser} refreshUser={refreshUser} />
-      <MyTweet signedInUser={signedInUser} />
+      <EditProfile
+        signedInUser={signedInUser}
+        refreshUser={refreshUser}
+        bioText={bioText}
+      />
+
+      <div className="TweetList">
+        {myTweets.map(tweet => (
+          <Tweet
+            key={`${tweet.creatorId}/${tweet.createdAt}`}
+            tweetObj={tweet}
+            isOwner={tweet.creatorId === signedInUser.uid}
+          />
+        ))}
+      </div>
+
       <button
         className="btn-control btn-signOut"
         type="submit"
