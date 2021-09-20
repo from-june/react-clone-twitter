@@ -81,8 +81,6 @@ const Tweet = ({ tweetObj, isOwner }) => {
                 className="selected-img"
                 src={tweetObj.attachmentUrl}
                 alt="Selected file"
-                width="150px"
-                height="150px"
               />
             </div>
           )}
