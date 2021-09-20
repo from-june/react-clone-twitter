@@ -46,20 +46,22 @@ const Tweet = ({ tweetObj, isOwner }) => {
     <div className="Tweet">
       {isEditing ? (
         isOwner && (
-          <form className="edit-form" onSubmit={onNewTweetSubmit}>
-            <textarea
-              className="edit-textarea"
-              placeholder="내용을 수정하세요."
-              required
-              value={newTweet}
-              onChange={onNewTweetClick}
-            />
-            <div className="btn-edit-box">
-              <button className="btn-control btn-okay" type="submit">
-                확인
-              </button>
-            </div>
-          </form>
+          <div className="edit-box">
+            <form className="edit-form" onSubmit={onNewTweetSubmit}>
+              <textarea
+                className="edit-textarea"
+                placeholder="내용을 수정하세요."
+                required
+                value={newTweet}
+                onChange={onNewTweetClick}
+              />
+              <div className="btn-edit-box">
+                <button className="btn-control btn-okay" type="submit">
+                  확인
+                </button>
+              </div>
+            </form>
+          </div>
         )
       ) : (
         <div className="user-tweet">
@@ -86,7 +88,7 @@ const Tweet = ({ tweetObj, isOwner }) => {
           )}
         </div>
       )}
-      {isOwner && (
+      {!isEditing && isOwner && (
         <div className="btn-box">
           <button className="btn-edit" onClick={onToggleEditClick}>
             <FontAwesomeIcon icon={faEdit} size="1x" className="btn-icon" />
