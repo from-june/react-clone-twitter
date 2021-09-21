@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { authService, dbService, storageService } from 'myFirebase';
 import { updateProfile } from '@firebase/auth';
-import { doc, updateDoc } from '@firebase/firestore';
+import { doc, setDoc } from '@firebase/firestore';
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 
 import 'css/EditProfile.css';
@@ -58,11 +58,10 @@ const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
     }
 
     if (isEditing) {
-      await updateDoc(doc(dbService, 'bio', signedInUser.uid), {
+      await setDoc(doc(dbService, 'bio', signedInUser.uid), {
         text: userBio,
         creatorId: signedInUser.uid
       });
-
       setIsEditing(false);
     }
   };

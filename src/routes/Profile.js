@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { authService, dbService } from 'myFirebase';
 import { signOut } from '@firebase/auth';
@@ -26,14 +26,23 @@ const Profile = ({ signedInUser, refreshUser }) => {
     history.push('/');
   };
 
-  const getMyTweets = useCallback(async () => {
+  useEffect(() => {
+    /* const bioRef = doc(dbService, 'bio', signedInUser.uid);
+    const bioSnap = await getDoc(bioRef);
+    if (bioSnap.exists()) setBioText(bioSnap.data().text); */
+
+    const userBioText = onSnapshot(
+      doc(dbService, 'bio', signedInUser?.uid),
+      doc => setBioText(doc.data().text)
+    );
+
     const tweets = query(
       collection(dbService, 'tweets'),
-      where('creatorId', '==', signedInUser.uid),
+      where('creatorId', '==', signedInUser?.uid),
       orderBy('createdAt', 'desc')
     );
 
-    const unsubscribe = onSnapshot(tweets, snapshot => {
+    const unsubscribeTweet = onSnapshot(tweets, snapshot => {
       const myTweetArr = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -41,24 +50,11 @@ const Profile = ({ signedInUser, refreshUser }) => {
       setMyTweets(myTweetArr);
     });
 
-    return () => unsubscribe();
-  }, [signedInUser.uid]);
-
-  const getMyBio = useCallback(async () => {
-    const unsubscribe = onSnapshot(
-      doc(dbService, 'bio', signedInUser.uid),
-      doc => {
-        if (!doc.data()) return;
-        setBioText(doc.data().text);
-      }
-    );
-    return () => unsubscribe();
-  }, [signedInUser.uid]);
-
-  useEffect(() => {
-    getMyTweets();
-    getMyBio();
-  }, [getMyTweets, getMyBio]);
+    return () => {
+      userBioText();
+      unsubscribeTweet();
+    };
+  }, [signedInUser?.uid]);
 
   return (
     <div className="Profile Clone-container">
