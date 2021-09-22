@@ -68,9 +68,10 @@ const CreateTweet = ({ signedInUser }) => {
           className="tweet-area"
           onChange={onInputChange}
           value={tweet}
-          placeholder="무슨 일이 있었나요?"
-          maxLength={120}
-          require="true"
+          placeholder="무슨 일이 있어나고 있나요?"
+          minLength="1"
+          maxLength="120"
+          required
         />
 
         <div className="tweet-file">
@@ -87,6 +88,10 @@ const CreateTweet = ({ signedInUser }) => {
             accept="image/*"
             onChange={onFileChange}
           />
+          <button type="submit" className="btn-send">
+            <span className="visually-hidden">발행</span>
+            <FontAwesomeIcon icon={faPencilAlt} size="lg" className="submit" />
+          </button>
         </div>
         {attachment && (
           <div className="attachment-box">
@@ -104,10 +109,6 @@ const CreateTweet = ({ signedInUser }) => {
             </button>
           </div>
         )}
-        <button type="submit" className="btn-send">
-          <span className="visually-hidden">발행</span>
-          <FontAwesomeIcon icon={faPencilAlt} size="lg" className="submit" />
-        </button>
       </form>
     </>
   );

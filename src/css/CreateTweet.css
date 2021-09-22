@@ -1,10 +1,10 @@
 .tweet-form {
   position: relative;
-  margin-bottom: var(--margin-bottom-sm);
+  border-bottom: 1px dashed var(--border-color);
+  margin: var(--margin-bottom-sm);
 }
 
 .tweet-area {
-  margin: 5px;
   width: 24rem;
   height: 4rem;
   outline: none;
@@ -15,7 +15,7 @@
 }
 
 .tweet-area::placeholder {
-  color: var(--placeholder-color);
+  color: var(--unseleted-color);
   font-size: 1rem;
 }
 
@@ -38,6 +38,7 @@
 .tweet-file {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 0.5rem;
 }
 
 #tweet-img {
@@ -45,7 +46,7 @@
 }
 
 .input-img-label {
-  margin-right: 4rem;
+  margin: 0.3rem;
 }
 
 .input-img {
@@ -66,9 +67,6 @@
   border: none;
   outline: none;
   background-color: transparent;
-  position: absolute;
-  top: 75px;
-  right: 10px;
   cursor: pointer;
 }
 

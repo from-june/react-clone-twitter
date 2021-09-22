@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import 'css/Navigation.css';
+import mainLogo from 'images/twitter.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,13 +36,23 @@ const Navigation = ({ signedInUser }) => {
           <Link to="/">
             <FontAwesomeIcon
               icon={faHome}
-              size="2x"
+              size="lg"
               className="link-item"
               id="home-item"
-            />{' '}
-            <span className="link-item" id="home-item">
-              홈
-            </span>
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <div className="logo-box">
+              <img
+                className="logo"
+                src={mainLogo}
+                alt="Clone twitter"
+                width="40px"
+                height="40px"
+              />
+            </div>
           </Link>
         </li>
         <li
@@ -53,13 +64,10 @@ const Navigation = ({ signedInUser }) => {
             <Link to="/profile">
               <FontAwesomeIcon
                 icon={faUser}
-                size="2x"
+                size="lg"
                 className="link-item"
                 id="profile-item"
-              />{' '}
-              <span className="link-item" id="profile-item">
-                프로필
-              </span>
+              />
             </Link>
           )}
         </li>

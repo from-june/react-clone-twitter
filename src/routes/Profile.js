@@ -57,7 +57,7 @@ const Profile = ({ signedInUser, refreshUser }) => {
   }, [signedInUser?.uid]);
 
   return (
-    <div className="Profile Clone-container">
+    <div className="Profile">
       <div className="Profile-userContent">
         <img
           className="Profile-userImg"
@@ -68,11 +68,19 @@ const Profile = ({ signedInUser, refreshUser }) => {
           <p className="Profile-userName">{signedInUser.displayName}</p>
           <p className="Profile-userBio">{bioText}</p>
         </div>
+        <button
+          className="btn-control btn-signOut"
+          type="submit"
+          onClick={onLogoutClick}
+        >
+          로그아웃
+        </button>
       </div>
       <EditProfile
         signedInUser={signedInUser}
         refreshUser={refreshUser}
         bioText={bioText}
+        myTweets={myTweets}
       />
 
       <div className="TweetList">
@@ -86,14 +94,6 @@ const Profile = ({ signedInUser, refreshUser }) => {
           />
         ))}
       </div>
-
-      <button
-        className="btn-control btn-signOut"
-        type="submit"
-        onClick={onLogoutClick}
-      >
-        로그아웃
-      </button>
     </div>
   );
 };

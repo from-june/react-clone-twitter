@@ -5,7 +5,6 @@ import CreateTweet from 'components/CreateTweet';
 import Tweet from 'components/Tweet';
 
 import 'css/Home.css';
-import mainLogo from 'images/twitter.png';
 
 const Home = ({ signedInUser }) => {
   const [tweetList, setTweetList] = useState([]);
@@ -28,16 +27,7 @@ const Home = ({ signedInUser }) => {
   }, []);
 
   return (
-    <div className="Clone-container Home">
-      <div className="logo-box">
-        <img
-          className="logo"
-          src={mainLogo}
-          alt="Clone twitter"
-          width="40px"
-          height="40px"
-        />
-      </div>
+    <div className="Home">
       <CreateTweet signedInUser={signedInUser} />
       <div className="TweetList">
         {tweetList.map(tweet => (
@@ -50,6 +40,43 @@ const Home = ({ signedInUser }) => {
           />
         ))}
       </div>
+      <footer className="footer">
+        <p>&copy; 2021 CloneTwitter</p>
+        <div className="icon__link">
+          Icons made by{' '}
+          <a
+            className="footer--link"
+            href="https://www.freepik.com"
+            title="Freepik"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Freepik{' '}
+          </a>
+          from{' '}
+          <a
+            className="footer--link"
+            href="https://www.flaticon.com/"
+            title="Flaticon"
+            target="_blank"
+            rel="noreferrer"
+          >
+            www.flaticon.com
+          </a>
+          <p>
+            and{' '}
+            <a
+              className="footer--link"
+              href="https://fontawesome.com/"
+              title="Font Awesome"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Font Awesome
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

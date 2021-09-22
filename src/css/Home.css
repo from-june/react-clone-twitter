@@ -1,55 +1,37 @@
-.Clone-container {
-  position: relative;
-  width: 25rem;
-  height: 34rem;
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white-color);
+  margin-bottom: 1rem;
+}
+
+.Home::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4.5rem;
+  background-color: var(--white-color);
+}
+
+.TweetList {
+  padding: 0.5rem;
+}
+
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  z-index: 1;
+  font-size: 14px;
+  color: var(--primary-color);
 }
 
-.TweetList {
-  width: 24rem;
-  height: 100vh;
-  padding: 1rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-y: scroll;
+.icon__link {
+  text-align: center;
 }
 
-.TweetList::-webkit-scrollbar {
-  width: 10px;
-}
-
-.TweetList::-webkit-scrollbar-thumb {
-  background-color: var(--point-color);
-  border-radius: 10px;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-}
-
-.TweetList::-webkit-scrollbar-track {
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.logo-box {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 25rem;
-  height: 5rem;
-}
-
-.logo {
-  margin: auto;
+.footer--link {
+  color: var(--point-color);
 }

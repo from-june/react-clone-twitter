@@ -2,7 +2,7 @@
   --primary-color: #1da1f2;
   --point-color: #fedd47;
   --text-color: #333;
-  --border-color: #e5e5e5;
+  --border-color: #eeeeee;
   --white-color: #ffffff;
   --unseleted-color: #999;
   --placeholder-color: #d2d2d2;
@@ -95,15 +95,25 @@ li {
   color: var(--primary-color);
 }
 
-.footer {
+.Main {
+  width: 26rem;
+  height: 38rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  font-size: 14px;
-  color: var(--primary-color);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow-y: scroll;
 }
 
-a {
-  color: var(--white-color);
+.Main::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Main::-webkit-scrollbar-thumb {
+  background-color: var(--point-color);
+  border-radius: 15px;
+  background-clip: padding-box;
+  border: 3px solid transparent;
 }

@@ -1,13 +1,21 @@
+.Profile::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4.5rem;
+  background-color: var(--white-color);
+}
+
 .Profile {
+  width: 100%;
+  padding: 1rem;
   position: relative;
   justify-content: flex-start;
 }
 
 .Profile-userContent {
-  width: 24rem;
-  height: 23%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 1rem;
 }
@@ -26,7 +34,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: auto;
 }
+
 .Profile-userName {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
@@ -36,10 +46,8 @@
 .Profile-userBio {
   font-size: 0.9rem;
 }
+
 .btn-signOut {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   font-size: 1rem;
   color: var(--primary-color);
   background-color: transparent;
