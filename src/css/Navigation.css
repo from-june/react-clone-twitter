@@ -1,6 +1,6 @@
 .Navigation {
   position: fixed;
-  width: 24rem;
+  width: 25rem;
   background-color: #fff;
   border-bottom: 1px solid var(--border-color);
   z-index: 2;
@@ -12,6 +12,12 @@
   justify-content: space-around;
   align-items: center;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+  .Navigation-box {
+    height: 4rem;
+  }
 }
 
 .Navigation-link {

@@ -1,11 +1,15 @@
 .tweet-form {
-  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px dashed var(--border-color);
   margin: var(--margin-bottom-sm);
 }
 
 .tweet-area {
-  width: 24rem;
+  width: 95%;
   height: 4rem;
   outline: none;
   padding: 0.5rem;
@@ -36,6 +40,7 @@
 }
 
 .tweet-file {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 0.5rem;
@@ -78,11 +83,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 24rem;
+  width: 95%;
   height: 7rem;
   padding: 0.5rem;
   border: 1px dashed var(--border-color);
   border-radius: 3px;
+  margin-bottom: 0.5rem;
 }
 
 .attachment-img {

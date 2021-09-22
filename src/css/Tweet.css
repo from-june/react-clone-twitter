@@ -1,10 +1,10 @@
 .Tweet {
   position: relative;
-  width: 22rem;
+  width: 100%;
 }
 
 .user-tweet {
-  width: 22rem;
+  width: 100%;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
 }
