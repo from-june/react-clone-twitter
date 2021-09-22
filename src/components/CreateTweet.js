@@ -40,7 +40,8 @@ const CreateTweet = ({ signedInUser }) => {
       creatorId: signedInUser.uid,
       creatorImg: signedInUser.photoURL,
       creatorName: signedInUser.displayName,
-      attachmentUrl
+      attachmentUrl,
+      likeUsers: []
     });
 
     setTweet('');

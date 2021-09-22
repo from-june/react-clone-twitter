@@ -37,6 +37,29 @@
   letter-spacing: -0.05em;
 }
 
+.btn--heart__box {
+  text-align: right;
+}
+
+.btn--heart {
+  padding: 0.3rem 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.heart__icon {
+  color: #db4437;
+  margin-right: 5px;
+}
+
+.heart__count {
+  font-size: 0.8rem;
+  color: var(--unseleted-color);
+}
+
 .tweet-text {
   padding: 0.5rem;
   font-size: 0.9rem;

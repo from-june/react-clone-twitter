@@ -5,10 +5,16 @@ import { ref, deleteObject } from 'firebase/storage';
 
 import 'css/Tweet.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import {
+  faHeart as fillHeart,
+  faTrashAlt
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faEdit,
+  faHeart as frameHeart
+} from '@fortawesome/free-regular-svg-icons';
 
-const Tweet = ({ tweetObj, isOwner }) => {
+const Tweet = ({ tweetObj, isOwner, likedUser, userId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTweet, setNewTweet] = useState(tweetObj.text);
 
@@ -36,10 +42,30 @@ const Tweet = ({ tweetObj, isOwner }) => {
   };
 
   const getTweetDate = () => {
-    const date = new Date(tweetObj.createdAt);
-    return `${date.getFullYear()}.${
-      date.getMonth() + 1
-    }.${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+    const createdDate = new Date(tweetObj.createdAt);
+    const year = createdDate.getFullYear();
+    const month = createdDate.getMonth() + 1;
+    const date = createdDate.getDate();
+    const hours = createdDate.getHours();
+    const minutes = createdDate.getMinutes();
+
+    return `${year}.${month}.${date} ${hours}:${minutes}`;
+  };
+
+  // replaceMe:
+  const onHeartClick = async () => {
+    if (likedUser) {
+      const filterUsers = tweetObj.likeUsers.filter(user => user !== userId);
+      await updateDoc(doc(dbService, `tweets/${tweetObj.id}`), {
+        likeUsers: filterUsers
+      });
+    }
+
+    if (!likedUser) {
+      await updateDoc(doc(dbService, `tweets/${tweetObj.id}`), {
+        likeUsers: [...tweetObj.likeUsers, userId]
+      });
+    }
   };
 
   return (
@@ -82,6 +108,19 @@ const Tweet = ({ tweetObj, isOwner }) => {
                 src={tweetObj.attachmentUrl}
                 alt="Selected file"
               />
+            </div>
+          )}
+          {tweetObj.likeUsers && (
+            <div className="btn--heart__box">
+              <button onClick={onHeartClick} className="btn--heart">
+                <FontAwesomeIcon
+                  icon={likedUser ? fillHeart : frameHeart}
+                  className="heart__icon"
+                />
+                <span className="heart__count">
+                  {tweetObj.likeUsers?.length}
+                </span>
+              </button>
             </div>
           )}
         </div>

@@ -81,6 +81,8 @@ const Profile = ({ signedInUser, refreshUser }) => {
             key={`${tweet.creatorId}/${tweet.createdAt}`}
             tweetObj={tweet}
             isOwner={tweet.creatorId === signedInUser.uid}
+            likedUser={tweet.likeUsers?.includes(signedInUser.uid)}
+            userId={signedInUser.uid}
           />
         ))}
       </div>
