@@ -1,8 +1,6 @@
 .EditProfile {
   display: flex;
   flex-direction: column;
-  width: 24rem;
-  height: 39%;
   padding: 0.5rem;
   border: 1px dashed var(--border-color);
   border-radius: 3px;
@@ -43,7 +41,7 @@
 
 .edit-userImg {
   position: absolute;
-  top: -65px;
+  top: -75px;
   left: 60px;
   margin: 5px;
 }
@@ -74,6 +72,11 @@
 
 .btn-save {
   margin-right: 5px;
+}
+
+.btn-edit-profile-box {
+  width: 100%;
+  text-align: center;
 }
 
 .btn-edit-profile {

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { authService, dbService, storageService } from 'myFirebase';
 import { updateProfile } from '@firebase/auth';
-import { doc, setDoc } from '@firebase/firestore';
+import { doc, setDoc, updateDoc } from '@firebase/firestore';
 import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 
 import 'css/EditProfile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
 
-const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
+const EditProfile = ({ signedInUser, refreshUser, bioText, myTweets }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newPhotoURL, setNewPhotoURL] = useState('');
   const [newDisplayName, setNewDisplayName] = useState(
@@ -45,7 +45,13 @@ const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
       await updateProfile(authService.currentUser, {
         photoURL: attachmentUrl
       });
+      myTweets.map(async tweet => {
+        await updateDoc(doc(dbService, `tweets/${tweet.id}`), {
+          creatorImg: attachmentUrl
+        });
+      });
       refreshUser();
+
       setIsEditing(false);
     }
 
@@ -153,12 +159,14 @@ const EditProfile = ({ signedInUser, refreshUser, bioText }) => {
         </div>
       )}
       {!isEditing && (
-        <button
-          className="btn-control btn-edit-profile"
-          onClick={onToggleEditClick}
-        >
-          프로필수정
-        </button>
+        <div className="btn-edit-profile-box">
+          <button
+            className="btn-control btn-edit-profile"
+            onClick={onToggleEditClick}
+          >
+            프로필수정
+          </button>
+        </div>
       )}
     </>
   );
