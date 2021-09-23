@@ -16,7 +16,9 @@ const App = () => {
       if (user) {
         setIsSignedIn(true);
         setSignedInUser({
-          displayName: user.displayName ? user.displayName : 'Anonymous',
+          displayName: user.displayName
+            ? user.displayName
+            : user.uid.slice(0, 9),
           uid: user.uid,
           photoURL: user.photoURL ? user.photoURL : mainLogo
         });
@@ -34,7 +36,7 @@ const App = () => {
     setSignedInUser({
       displayName: user.displayName,
       uid: user.uid,
-      photoURL: user.photoURL
+      photoURL: user.photoURL ? user.photoURL : mainLogo
     });
   };
 

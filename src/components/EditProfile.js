@@ -7,7 +7,6 @@ import { getDownloadURL, ref, uploadString } from '@firebase/storage';
 import 'css/EditProfile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
-import mainLogo from 'images/twitter.png';
 
 const EditProfile = ({ signedInUser, refreshUser, bioText, myTweets }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -35,7 +34,7 @@ const EditProfile = ({ signedInUser, refreshUser, bioText, myTweets }) => {
     event.preventDefault();
 
     let attachmentUrl = '';
-    if (newPhotoURL !== '' && newPhotoURL !== mainLogo) {
+    if (newPhotoURL !== '') {
       const photoURLRef = ref(storageService, `${signedInUser.uid}`);
       const uploadImg = await uploadString(
         photoURLRef,
@@ -46,13 +45,13 @@ const EditProfile = ({ signedInUser, refreshUser, bioText, myTweets }) => {
       await updateProfile(authService.currentUser, {
         photoURL: attachmentUrl
       });
+
       myTweets.map(async tweet => {
         await updateDoc(doc(dbService, `tweets/${tweet.id}`), {
           creatorImg: attachmentUrl
         });
       });
       refreshUser();
-
       setIsEditing(false);
     }
 
