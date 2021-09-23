@@ -38,21 +38,5 @@
 }
 
 .link-item {
-  color: var(--unseleted-color);
-}
-
-#home-item {
-  color: var(--primary-color);
-}
-
-.Navigation-link:hover .link-item {
-  color: var(--primary-color);
-}
-
-.Navigation-link:focus-within .link-item {
-  color: var(--primary-color);
-}
-
-.Navigation-link:active .link-item {
   color: var(--primary-color);
 }

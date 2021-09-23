@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import 'css/Navigation.css';
 import mainLogo from 'images/twitter.png';
@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = ({ signedInUser }) => {
-  const resetColor = () => {
+  // const [activeLink, setActiveLink] = useState(null);
+
+  /*const resetColor = () => {
     document
       .querySelectorAll('.link-item')
       .forEach(item => (item.style.color = '#999'));
@@ -15,35 +17,32 @@ const Navigation = ({ signedInUser }) => {
 
   const onTargetClick = event => {
     const parentEl = event.target.closest('.Navigation-link');
-    if (parentEl.id === 'link-home') {
+
+    if (parentEl.className === 'Navigation-link nav__home') {
       resetColor();
-      document
-        .querySelectorAll('#home-item')
-        .forEach(item => (item.style.color = '#1da1f2'));
+      document.querySelector('.link__home').style.color = '#1da1f2';
     }
-    if (parentEl.id === 'link-profile') {
+
+    if (parentEl.className === 'Navigation-link nav__profile') {
       resetColor();
-      document
-        .querySelectorAll('#profile-item')
-        .forEach(item => (item.style.color = '#1da1f2'));
+      document.querySelector('.link__profile').style.color = '#1da1f2';
     }
-  };
+  };*/
 
   return (
     <div className="Navigation">
       <ul className="Navigation-box">
-        <li className="Navigation-link" id="link-home" onClick={onTargetClick}>
-          <Link to="/">
+        <li className="Navigation-link nav__home">
+          <NavLink to="/" exact>
             <FontAwesomeIcon
               icon={faHome}
               size="lg"
-              className="link-item"
-              id="home-item"
+              className="link-item link__home"
             />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/">
+          <NavLink to="/" exact>
             <div className="logo-box">
               <img
                 className="logo"
@@ -53,22 +52,17 @@ const Navigation = ({ signedInUser }) => {
                 height="40px"
               />
             </div>
-          </Link>
+          </NavLink>
         </li>
-        <li
-          className="Navigation-link"
-          id="link-profile"
-          onClick={onTargetClick}
-        >
+        <li className="Navigation-link nav__profile">
           {signedInUser && (
-            <Link to="/profile">
+            <NavLink to={`/${signedInUser.uid}`} exact>
               <FontAwesomeIcon
                 icon={faUser}
                 size="lg"
-                className="link-item"
-                id="profile-item"
+                className="link-item link__profile"
               />
-            </Link>
+            </NavLink>
           )}
         </li>
       </ul>
