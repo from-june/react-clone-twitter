@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+import { Link } from 'react-router-dom';
 import { dbService, storageService } from 'myFirebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage';
@@ -69,75 +71,85 @@ const Tweet = ({ tweetObj, isOwner, likedUser, userId }) => {
   };
 
   return (
-    <div className="Tweet">
-      {isEditing ? (
-        isOwner && (
-          <div className="edit-box">
-            <form className="edit-form" onSubmit={onNewTweetSubmit}>
-              <textarea
-                className="edit-textarea"
-                placeholder="내용을 수정하세요."
-                required
-                value={newTweet}
-                onChange={onNewTweetClick}
-              />
-              <div className="btn-edit-box">
-                <button className="btn-control btn-okay" type="submit">
-                  확인
+    <>
+      <div className="Tweet">
+        {isEditing ? (
+          isOwner && (
+            <div className="edit-box">
+              <form className="edit-form" onSubmit={onNewTweetSubmit}>
+                <textarea
+                  className="edit-textarea"
+                  placeholder="내용을 수정하세요."
+                  required
+                  value={newTweet}
+                  onChange={onNewTweetClick}
+                />
+                <div className="btn-edit-box">
+                  <button className="btn-control btn-okay" type="submit">
+                    확인
+                  </button>
+                </div>
+              </form>
+            </div>
+          )
+        ) : (
+          <div className="user-tweet">
+            <div className="tweet-content">
+              <Link to={`/${tweetObj.creatorId}`}>
+                <img
+                  className="Tweet-userImg"
+                  src={tweetObj.creatorImg}
+                  alt="User"
+                  width="50px"
+                  height="50px"
+                />
+              </Link>
+              <p className="Tweet-userName">{tweetObj.creatorName}</p>
+              <span className="tweet-date">{getTweetDate()}</span>
+            </div>
+            <h4 className="tweet-text">{tweetObj.text}</h4>
+            {tweetObj.attachmentUrl && (
+              <div className="selected-img-box">
+                <img
+                  className="selected-img"
+                  src={tweetObj.attachmentUrl}
+                  alt="Selected file"
+                />
+              </div>
+            )}
+            {tweetObj.likeUsers && (
+              <div className="btn--heart__box">
+                <button onClick={onHeartClick} className="btn--heart">
+                  <FontAwesomeIcon
+                    icon={likedUser ? fillHeart : frameHeart}
+                    className="heart__icon"
+                  />
+                  <span className="heart__count">
+                    {tweetObj.likeUsers?.length}
+                  </span>
                 </button>
               </div>
-            </form>
+            )}
           </div>
-        )
-      ) : (
-        <div className="user-tweet">
-          <div className="tweet-content">
-            <img
-              className="Tweet-userImg"
-              src={tweetObj.creatorImg}
-              alt="User"
-            />
-            <p className="Tweet-userName">{tweetObj.creatorName}</p>
-            <span className="tweet-date">{getTweetDate()}</span>
-          </div>
-          <h4 className="tweet-text">{tweetObj.text}</h4>
-          {tweetObj.attachmentUrl && (
-            <div className="selected-img-box">
-              <img
-                className="selected-img"
-                src={tweetObj.attachmentUrl}
-                alt="Selected file"
+        )}
+        {!isEditing && isOwner && (
+          <div className="btn-box">
+            <button className="btn-edit" onClick={onToggleEditClick}>
+              <FontAwesomeIcon icon={faEdit} size="1x" className="btn-icon" />
+              <span className="visually-hidden">수정</span>
+            </button>
+            <button className="btn-delete" onClick={onDeleteClick}>
+              <FontAwesomeIcon
+                icon={faTrashAlt}
+                size="1x"
+                className="btn-icon"
               />
-            </div>
-          )}
-          {tweetObj.likeUsers && (
-            <div className="btn--heart__box">
-              <button onClick={onHeartClick} className="btn--heart">
-                <FontAwesomeIcon
-                  icon={likedUser ? fillHeart : frameHeart}
-                  className="heart__icon"
-                />
-                <span className="heart__count">
-                  {tweetObj.likeUsers?.length}
-                </span>
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-      {!isEditing && isOwner && (
-        <div className="btn-box">
-          <button className="btn-edit" onClick={onToggleEditClick}>
-            <FontAwesomeIcon icon={faEdit} size="1x" className="btn-icon" />
-            <span className="visually-hidden">수정</span>
-          </button>
-          <button className="btn-delete" onClick={onDeleteClick}>
-            <FontAwesomeIcon icon={faTrashAlt} size="1x" className="btn-icon" />
-            <span className="visually-hidden">삭제</span>
-          </button>
-        </div>
-      )}
-    </div>
+              <span className="visually-hidden">삭제</span>
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

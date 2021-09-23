@@ -16,7 +16,7 @@ const Router = ({ isSignedIn, signedInUser, refreshUser }) => {
               <Route exact path="/">
                 <Home signedInUser={signedInUser} />
               </Route>
-              <Route exact path="/profile">
+              <Route path="/:uid">
                 <Profile
                   signedInUser={signedInUser}
                   refreshUser={refreshUser}
