@@ -104,7 +104,7 @@ const Tweet = ({ tweetObj, isOwner, likedUser, userId }) => {
                   height="50px"
                 />
               </Link>
-              <p className="Tweet-userName">{tweetObj.creatorName}</p>
+              <h3 className="Tweet-userName">{tweetObj.creatorName}</h3>
               <span className="tweet-date">{getTweetDate()}</span>
             </div>
             <h4 className="tweet-text">{tweetObj.text}</h4>
