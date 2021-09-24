@@ -60,6 +60,12 @@ const EditProfile = ({ signedInUser, refreshUser, bioText, myTweets }) => {
         displayName: newDisplayName
       });
       refreshUser();
+
+      myTweets.map(async tweet => {
+        await updateDoc(doc(dbService, `tweets/${tweet.id}`), {
+          creatorName: newDisplayName
+        });
+      });
       setIsEditing(false);
     }
 
