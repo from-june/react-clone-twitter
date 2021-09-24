@@ -111,6 +111,7 @@ const Tweet = ({ tweetObj, isOwner, likedUser, userId }) => {
             {tweetObj.attachmentUrl && (
               <div className="selected-img-box">
                 <img
+                  loading="lazy"
                   className="selected-img"
                   src={tweetObj.attachmentUrl}
                   alt="Selected file"

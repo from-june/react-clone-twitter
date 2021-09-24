@@ -25,6 +25,11 @@
   justify-content: center;
   align-items: center;
   border: none;
+  color: var(--unselected-color);
+}
+
+.active {
+  color: var(--primary-color);
 }
 
 .logo-box {
@@ -35,8 +40,4 @@
 
 .logo {
   margin: auto;
-}
-
-.link-item {
-  color: var(--primary-color);
 }
