@@ -124,6 +124,7 @@ li {
 @media screen and (max-width: 425px) {
   .Main {
     width: 100%;
+    height: 100vh;
     border-radius: 0;
   }
 }
