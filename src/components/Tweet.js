@@ -48,13 +48,12 @@ const Tweet = ({ tweetObj, isOwner, likedUser, userId }) => {
     const year = createdDate.getFullYear();
     const month = createdDate.getMonth() + 1;
     const date = createdDate.getDate();
-    const hours = createdDate.getHours();
-    const minutes = createdDate.getMinutes();
+    const hours = String(createdDate.getHours()).padStart(2, '0');
+    const minutes = String(createdDate.getMinutes()).padStart(2, '0');
 
     return `${year}.${month}.${date} ${hours}:${minutes}`;
   };
 
-  // replaceMe:
   const onHeartClick = async () => {
     if (likedUser) {
       const filterUsers = tweetObj.likeUsers.filter(user => user !== userId);
