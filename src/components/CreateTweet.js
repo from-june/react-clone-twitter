@@ -55,9 +55,7 @@ const CreateTweet = ({ signedInUser }) => {
   const onFileChange = event => {
     const selectedFile = event.target.files[0];
     const reader = new FileReader();
-    reader.onloadend = event => {
-      setAttachment(event.target.result);
-    };
+    reader.onloadend = event => setAttachment(event.target.result);
     reader.readAsDataURL(selectedFile);
   };
 
